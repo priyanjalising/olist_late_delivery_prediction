@@ -14,8 +14,6 @@ olist_delivery/
 │   ├── train.py                 # model training, evaluation, serialisation
 │   ├── error_analysis.py        # structured error & segment analysis
 │   └── app.py                   # FastAPI service (prediction + SHAP)
-├── tests/
-│   └── test_api.py              # integration tests + sample requests
 ├── models/                      # persisted pipeline + metadata (created by train.py)
 ├── outputs/                     # parquet splits + error-analysis charts
 └── requirements.txt
@@ -31,10 +29,13 @@ pip install -r requirements.txt
 # 1. Build features
 python src/feature_engineering.py /path/to/olist/data
 
-# 2. Train models (runs all candidates, picks best on validation MAE)
+# 2. Split the data
+python src/split.py models/
+
+# 3. Train models (runs all candidates, picks best on validation MAE)
 python src/train.py outputs/features.parquet
 
-# 3. Error analysis
+# 4. Error analysis
 python src/error_analysis.py
 
 # 4. Serve the API
