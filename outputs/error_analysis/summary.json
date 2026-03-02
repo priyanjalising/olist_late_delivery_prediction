@@ -1,0 +1,19 @@
+{
+  "bias_days": -2.794,
+  "within_1d_pct": 12.6,
+  "within_2d_pct": 25.8,
+  "worst_categories": [
+    "fashion_shoes",
+    "fashion_underwear_beach",
+    "kitchen_dining_laundry_garden_furniture",
+    "home_appliances_2",
+    "office_furniture"
+  ],
+  "worst_distance_band": ">2000km",
+  "notes": [
+    "Model over-estimates for very fast deliveries (\u22645d) \u2014 consider separate model or post-hoc clipping.",
+    "Long-distance orders (>2000km) have highest absolute error \u2014 these require manual buffer.",
+    "New sellers have elevated error due to fallback stats \u2014 flag these for a wider confidence interval in the UI.",
+    "Holiday months (Nov, Dec) show seasonality-driven spikes \u2014 consider adding holiday feature."
+  ]
+}
